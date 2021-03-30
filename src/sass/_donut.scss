@@ -3,6 +3,7 @@
   width: 100%;
   min-height: 100vh;
 }
+
 .donut {
   position: relative;
   display: flex;
@@ -10,6 +11,14 @@
   height: 50vh;
   list-style: none;
   margin: 70px auto;
+}
+.title {
+  position: absolute;
+  top: 30%;
+  left: 45%;
+  color: white;
+  text-transform: uppercase;
+  font-size: 3rem;
 }
 .circle {
   position: absolute;

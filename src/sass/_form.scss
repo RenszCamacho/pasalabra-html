@@ -1,0 +1,36 @@
+.question {
+  margin-top: 7rem;
+  text-align: center;
+  font-size: 2rem;
+  color: white;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  margin-top: 7rem;
+}
+
+.input,
+[class$="-button"] {
+  font-size: 1.6rem;
+  padding: 1rem;
+  margin-right: 1rem;
+}
+
+.input {
+  text-align: center;
+}
+
+.aceptar-button {
+  background-color: green;
+  color: white;
+}
+.pasapalabra-button {
+  background-color: blue;
+  color: white;
+}
+.abandonar-button {
+  background-color: red;
+  color: white;
+}
