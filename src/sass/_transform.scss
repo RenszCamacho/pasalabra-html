@@ -1,0 +1,101 @@
+:root {
+  --deg: -200px;
+}
+
+.letterA {
+  transform: translateY(var(--deg));
+}
+
+.letterB {
+  transform: rotate(14.4deg) translateY(var(--deg)) rotate(-14.4deg);
+}
+
+.letterC {
+  transform: rotate(28.8deg) translateY(var(--deg)) rotate(-28.8deg);
+}
+
+.letterD {
+  transform: rotate(43.2deg) translateY(var(--deg)) rotate(-43.2deg);
+}
+
+.letterE {
+  transform: rotate(57.6deg) translateY(var(--deg)) rotate(-57.6deg);
+}
+
+.letterF {
+  transform: rotate(72deg) translateY(var(--deg)) rotate(-72deg);
+}
+
+.letterG {
+  transform: rotate(86.4deg) translateY(var(--deg)) rotate(-86.4deg);
+}
+
+.letterH {
+  transform: rotate(100.8deg) translateY(var(--deg)) rotate(-100.8deg);
+}
+
+.letterI {
+  transform: rotate(115.2deg) translateY(var(--deg)) rotate(-115.2deg);
+}
+
+.letterJ {
+  transform: rotate(129.6deg) translateY(var(--deg)) rotate(-129.6deg);
+}
+.letterL {
+  transform: rotate(144deg) translateY(var(--deg)) rotate(-144deg);
+}
+
+.letterM {
+  transform: rotate(158.4deg) translateY(var(--deg)) rotate(-158.4deg);
+}
+
+.letterN {
+  transform: rotate(172.8deg) translateY(var(--deg)) rotate(-172.8deg);
+}
+
+.letterÑ {
+  transform: rotate(187.2deg) translateY(var(--deg)) rotate(-187.2deg);
+}
+
+.letterO {
+  transform: rotate(201.6deg) translateY(var(--deg)) rotate(-201.6deg);
+}
+
+.letterP {
+  transform: rotate(216deg) translateY(var(--deg)) rotate(-216deg);
+}
+
+.letterQ {
+  transform: rotate(230.4deg) translateY(var(--deg)) rotate(-230.4deg);
+}
+
+.letterR {
+  transform: rotate(244.8deg) translateY(var(--deg)) rotate(-244.8deg);
+}
+
+.letterS {
+  transform: rotate(259.2deg) translateY(var(--deg)) rotate(-259.2deg);
+}
+
+.letterT {
+  transform: rotate(273.6deg) translateY(var(--deg)) rotate(-273.6deg);
+}
+.letterU {
+  transform: rotate(288deg) translateY(var(--deg)) rotate(-288deg);
+}
+
+.letterV {
+  transform: rotate(302.4deg) translateY(var(--deg)) rotate(-302.4deg);
+}
+
+.letterX {
+  transform: rotate(316.8deg) translateY(var(--deg)) rotate(-316.8deg);
+}
+
+.letterY {
+  transform: rotate(331.2deg) translateY(var(--deg)) rotate(-331.2deg);
+}
+
+.letterZ {
+  transform: rotate(345.6deg) translateY(var(--deg)) rotate(-345.6deg);
+}
