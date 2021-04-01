@@ -1,4 +1,3 @@
-"use strict";
 let right = 0,
   wrong = 0,
   username,
@@ -6,6 +5,7 @@ let right = 0,
   ranking = [],
   answeredQuestions,
   random;
+
 let donut = [
   {
     letter: "a",
@@ -279,6 +279,7 @@ let donut = [
     ],
   },
 ];
+
 const titleCase = (str) => {
   return str
     .toLowerCase()

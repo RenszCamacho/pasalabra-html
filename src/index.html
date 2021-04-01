@@ -7,40 +7,38 @@
     <script defer src="./index.js"></script>
   </head>
   <body>
-    <section class="wrapper">
-      <h1 class="title">Pasapalabra</h1>
+    <section class="info"></section>
+    <section class="donutWrapper">
+      <h2 class="title">Pasapalabra</h2>
       <ul class="donut">
-        <li id="a" class="circle unanswered letterA">A</li>
-        <li id="b" class="circle unanswered letterB">B</li>
-        <li id="c" class="circle unanswered letterC">C</li>
-        <li id="d" class="circle unanswered letterD">D</li>
-        <li id="e" class="circle unanswered letterE">E</li>
-        <li id="f" class="circle unanswered letterF">F</li>
-        <li id="g" class="circle unanswered letterG">G</li>
-        <li id="h" class="circle unanswered letterH">H</li>
-        <li id="i" class="circle unanswered letterI">I</li>
-        <li id="j" class="circle unanswered letterJ">J</li>
-        <li id="l" class="circle unanswered letterL">L</li>
-        <li id="m" class="circle unanswered letterM">M</li>
-        <li id="n" class="circle unanswered letterN">N</li>
-        <li id="ñ" class="circle unanswered letterÑ">Ñ</li>
-        <li id="o" class="circle unanswered letterO">O</li>
-        <li id="p" class="circle unanswered letterP">P</li>
-        <li id="q" class="circle unanswered letterQ">Q</li>
-        <li id="r" class="circle unanswered letterR">R</li>
-        <li id="s" class="circle unanswered letterS">S</li>
-        <li id="t" class="circle unanswered letterT">T</li>
-        <li id="u" class="circle unanswered letterU">U</li>
-        <li id="v" class="circle unanswered letterV">V</li>
-        <li id="x" class="circle unanswered letterX">X</li>
-        <li id="y" class="circle unanswered letterY">Y</li>
-        <li id="z" class="circle unanswered letterZ">Z</li>
+        <li id="a" class="circle letterA">A</li>
+        <li id="b" class="circle letterB">B</li>
+        <li id="c" class="circle letterC">C</li>
+        <li id="d" class="circle letterD">D</li>
+        <li id="e" class="circle letterE">E</li>
+        <li id="f" class="circle letterF">F</li>
+        <li id="g" class="circle letterG">G</li>
+        <li id="h" class="circle letterH">H</li>
+        <li id="i" class="circle letterI">I</li>
+        <li id="j" class="circle letterJ">J</li>
+        <li id="l" class="circle letterL">L</li>
+        <li id="m" class="circle letterM">M</li>
+        <li id="n" class="circle letterN">N</li>
+        <li id="ñ" class="circle letterÑ">Ñ</li>
+        <li id="o" class="circle letterO">O</li>
+        <li id="p" class="circle letterP">P</li>
+        <li id="q" class="circle letterQ">Q</li>
+        <li id="r" class="circle letterR">R</li>
+        <li id="s" class="circle letterS">S</li>
+        <li id="t" class="circle letterT">T</li>
+        <li id="u" class="circle letterU">U</li>
+        <li id="v" class="circle letterV">V</li>
+        <li id="x" class="circle letterX">X</li>
+        <li id="y" class="circle letterY">Y</li>
+        <li id="z" class="circle letterZ">Z</li>
       </ul>
-      <div class="question">
-        <p>
-          Con la B: Juego que ha sacado de quicio a todos los Skylabers en las
-          sesiones del precurso?
-        </p>
+      <div class="questionWrapper">
+        <p id="question"></p>
       </div>
       <form id="form" class="form">
         <input
@@ -50,16 +48,6 @@
           placeholder="Escribe aqui"
         />
         <button type="submit" class="aceptar-button">ACEPTAR</button>
-        <button
-          id="pasapalabra-button"
-          class="pasapalabra-button"
-          type="button"
-        >
-          PASAPALABRA
-        </button>
-        <button id="abandonar-button" class="abandonar-button" type="button">
-          ABANDONAR
-        </button>
       </form>
     </section>
   </body>

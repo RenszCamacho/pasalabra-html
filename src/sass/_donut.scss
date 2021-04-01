@@ -1,4 +1,4 @@
-.wrapper {
+.donutWrapper {
   background-color: hsl(219.7, 98.9%, 63.1%);
   width: 100%;
   min-height: 100vh;
@@ -12,14 +12,31 @@
   list-style: none;
   margin: 70px auto;
 }
+
 .title {
   position: absolute;
-  top: 30%;
-  left: 45%;
+  top: 33vh;
+  left: 31vw;
   color: white;
   text-transform: uppercase;
-  font-size: 3rem;
+  font-size: 2.5rem;
+  @include rwd(500px) {
+    left: 35vw;
+  }
+  @include rwd(medium) {
+    left: 40vw;
+  }
+  @include rwd(large) {
+    left: 43vw;
+  }
+  @include rwd(xlarge) {
+    left: 44vw;
+  }
+  @include rwd(xxlarge) {
+    left: 45vw;
+  }
 }
+
 .circle {
   position: absolute;
   left: 50%;
@@ -32,8 +49,6 @@
   );
   color: white;
   border-radius: 50%;
-  // height: 16px;
-  // width: 16px;
   padding: 10px;
   text-align: center;
 }
