@@ -42,11 +42,24 @@
           sesiones del precurso?
         </p>
       </div>
-      <form class="form">
-        <input class="input" type="text" placeholder="Escribe aqui" />
-        <input class="aceptar-button" type="button" value="ACEPTAR" />
-        <input class="pasapalabra-button" type="button" value="PASAPALABRA" />
-        <input class="abandonar-button" type="button" value="ABANDONAR" />
+      <form id="form" class="form">
+        <input
+          name="answer"
+          class="input"
+          type="text"
+          placeholder="Escribe aqui"
+        />
+        <button type="submit" class="aceptar-button">ACEPTAR</button>
+        <button
+          id="pasapalabra-button"
+          class="pasapalabra-button"
+          type="button"
+        >
+          PASAPALABRA
+        </button>
+        <button id="abandonar-button" class="abandonar-button" type="button">
+          ABANDONAR
+        </button>
       </form>
     </section>
   </body>
