@@ -52,3 +52,15 @@
   padding: 10px;
   text-align: center;
 }
+
+.right {
+  background: radial-gradient(circle, #8ecc88 0%, #01522b 100%);
+}
+
+.wrong {
+  background: radial-gradient(circle, #fb9c9c 0%, red 100%);
+}
+
+.pasapalabra {
+  background: radial-gradient(circle, #7ea4fb 0%, #2a00ff 100%);
+}

@@ -1,12 +1,3 @@
-let right = 0,
-  wrong = 0,
-  username,
-  quit = false,
-  ranking = [],
-  answer,
-  answeredQuestions,
-  random;
-
 let donut = [
   {
     letter: "a",
@@ -234,7 +225,6 @@ let donut = [
     status: 0,
     question: [
       "CON LA V. Nombre dado a los miembros de los pueblos nórdicos originarios de Escandinavia, famosos por sus incursiones y pillajes en Europa",
-      "CON LA V. Capital del País Vasco",
       "CON LA V. Método anticonceptivo permanente practicado al varón",
       "CON LA V. Operador de telefonía móvil inicialmente conocido como Racal Telecom",
     ],
@@ -282,43 +272,63 @@ let donut = [
 ];
 
 let donutElement = 0;
+let donutLetter;
 let question;
+let answer;
+let random;
+let rightAnswer;
+let letterOfTheDonut;
 
 const rng = (num) => Math.floor(Math.random() * num);
 
-const rngQuestion = () => {
-  for (let letter in donut) {
-    let element = donut[letter];
-    random = rng(element.question.length);
+const rngQuestionNumber = () => {
+  for (let element in donut) {
+    let ball = donut[element];
+    random = rng(ball.question.length);
   }
   return random;
 };
 
-const showQuestion = () => {
+const chooseQuestion = () => {
   question = donut[donutElement].question[random];
   return question;
 };
 
-const showUserAnswer = () => {
-  const input = document.getElementById("form");
-  let letter = donet[donutElement].letter;
-  input.addEventListener("submit", (event) => {
-    event.preventDefault();
-    answer = event.target.answer.value;
-    if (answer === donut[donutElement].answer[random]) {
-      dunut[donutElement].status = 1;
-      document.getElementById(letter).style.backgroundColor = "green";
-      donutElement++;
-    } else {
-      dunut[donutElement].status = 1;
-      document.getElementById(letter).style.backgroundColor = "red";
-    }
-  });
+const appendQuestion = () => {
+  let showQuestion = document.getElementById("question");
+  showQuestion.innerText = question;
 };
 
+let form = document.getElementById("form");
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  answer = event.target.input.value.trim().toLowerCase();
+  rightAnswer = donut[donutElement].answer[random];
+  donutLetter = donut[donutElement].letter;
+  letterOfTheDonut = document.getElementById(donutLetter);
+
+  if (answer === rightAnswer.toLowerCase()) {
+    donutElement++;
+    letterOfTheDonut.classList.add("right");
+  } else {
+    donutElement++;
+    letterOfTheDonut.classList.add("wrong");
+  }
+  if (answer === "pasapalabra") {
+    letterOfTheDonut.classList.add("pasapalabra");
+    chooseQuestion();
+    appendQuestion();
+    event.target.input.value = "";
+  }
+  chooseQuestion();
+  appendQuestion();
+  event.target.input.value = "";
+});
+
 const run = () => {
-  rngQuestion();
-  showQuestion();
+  rngQuestionNumber();
+  chooseQuestion();
+  appendQuestion();
 };
 
 run();
