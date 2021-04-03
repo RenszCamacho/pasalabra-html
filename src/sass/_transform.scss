@@ -1,101 +1,80 @@
-:root {
-  --deg: -140px;
-}
+$deg: -14.5rem;
 
-.letterA {
-  transform: translateY(var(--deg));
+#a {
+  transform: translateY($deg);
 }
-
-.letterB {
-  transform: rotate(14.4deg) translateY(var(--deg)) rotate(-14.4deg);
+#b {
+  transform: rotate(14deg) translateY($deg) rotate(-14deg);
 }
-
-.letterC {
-  transform: rotate(28.8deg) translateY(var(--deg)) rotate(-28.8deg);
+#c {
+  transform: rotate(28deg) translateY($deg) rotate(-28deg);
 }
-
-.letterD {
-  transform: rotate(43.2deg) translateY(var(--deg)) rotate(-43.2deg);
+#d {
+  transform: rotate(42deg) translateY($deg) rotate(-42deg);
 }
-
-.letterE {
-  transform: rotate(57.6deg) translateY(var(--deg)) rotate(-57.6deg);
+#e {
+  transform: rotate(56deg) translateY($deg) rotate(-56deg);
 }
-
-.letterF {
-  transform: rotate(72deg) translateY(var(--deg)) rotate(-72deg);
+#f {
+  transform: rotate(70deg) translateY($deg) rotate(-70deg);
 }
-
-.letterG {
-  transform: rotate(86.4deg) translateY(var(--deg)) rotate(-86.4deg);
+#g {
+  transform: rotate(84deg) translateY($deg) rotate(-84deg);
 }
-
-.letterH {
-  transform: rotate(100.8deg) translateY(var(--deg)) rotate(-100.8deg);
+#h {
+  transform: rotate(98deg) translateY($deg) rotate(-98deg);
 }
-
-.letterI {
-  transform: rotate(115.2deg) translateY(var(--deg)) rotate(-115.2deg);
+#i {
+  transform: rotate(112deg) translateY($deg) rotate(-112deg);
 }
-
-.letterJ {
-  transform: rotate(129.6deg) translateY(var(--deg)) rotate(-129.6deg);
+#j {
+  transform: rotate(126deg) translateY($deg) rotate(-126deg);
 }
-.letterL {
-  transform: rotate(144deg) translateY(var(--deg)) rotate(-144deg);
+#k {
+  transform: rotate(140deg) translateY($deg) rotate(-140deg);
 }
-
-.letterM {
-  transform: rotate(158.4deg) translateY(var(--deg)) rotate(-158.4deg);
+#l {
+  transform: rotate(154deg) translateY($deg) rotate(-154deg);
 }
-
-.letterN {
-  transform: rotate(172.8deg) translateY(var(--deg)) rotate(-172.8deg);
+#m {
+  transform: rotate(168deg) translateY($deg) rotate(-168deg);
 }
-
-.letterÑ {
-  transform: rotate(187.2deg) translateY(var(--deg)) rotate(-187.2deg);
+#n {
+  transform: rotate(182deg) translateY($deg) rotate(-182deg);
 }
-
-.letterO {
-  transform: rotate(201.6deg) translateY(var(--deg)) rotate(-201.6deg);
+#o {
+  transform: rotate(196deg) translateY($deg) rotate(-196deg);
 }
-
-.letterP {
-  transform: rotate(216deg) translateY(var(--deg)) rotate(-216deg);
+#p {
+  transform: rotate(210deg) translateY($deg) rotate(-210deg);
 }
-
-.letterQ {
-  transform: rotate(230.4deg) translateY(var(--deg)) rotate(-230.4deg);
+#q {
+  transform: rotate(224deg) translateY($deg) rotate(-224deg);
 }
-
-.letterR {
-  transform: rotate(244.8deg) translateY(var(--deg)) rotate(-244.8deg);
+#r {
+  transform: rotate(238deg) translateY($deg) rotate(-238deg);
 }
-
-.letterS {
-  transform: rotate(259.2deg) translateY(var(--deg)) rotate(-259.2deg);
+#s {
+  transform: rotate(252deg) translateY($deg) rotate(-252deg);
 }
-
-.letterT {
-  transform: rotate(273.6deg) translateY(var(--deg)) rotate(-273.6deg);
+#t {
+  transform: rotate(266deg) translateY($deg) rotate(-266deg);
 }
-.letterU {
-  transform: rotate(288deg) translateY(var(--deg)) rotate(-288deg);
+#u {
+  transform: rotate(280deg) translateY($deg) rotate(-280deg);
 }
-
-.letterV {
-  transform: rotate(302.4deg) translateY(var(--deg)) rotate(-302.4deg);
+#v {
+  transform: rotate(293deg) translateY($deg) rotate(-293deg);
 }
-
-.letterX {
-  transform: rotate(316.8deg) translateY(var(--deg)) rotate(-316.8deg);
+#w {
+  transform: rotate(307deg) translateY($deg) rotate(-306deg);
 }
-
-.letterY {
-  transform: rotate(331.2deg) translateY(var(--deg)) rotate(-331.2deg);
+#x {
+  transform: rotate(321deg) translateY($deg) rotate(-318deg);
 }
-
-.letterZ {
-  transform: rotate(345.6deg) translateY(var(--deg)) rotate(-345.6deg);
+#y {
+  transform: rotate(334deg) translateY($deg) rotate(-332deg);
+}
+#z {
+  transform: rotate(347deg) translateY($deg) rotate(-346deg);
 }

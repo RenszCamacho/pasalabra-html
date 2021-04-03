@@ -322,6 +322,7 @@ const rngQuestion = () => {
   return random;
 };
 const gameFlow = () => {
+  debugger;
   for (let letter in donut) {
     if (donut[letter].status === 0) {
       let element = donut[letter];
@@ -402,6 +403,7 @@ const reset = () => {
   }
 };
 const pasapalabra = () => {
+  debugger;
   greeting();
   reset();
   rngQuestion();

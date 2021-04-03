@@ -140,16 +140,6 @@ let donut = [
     ],
   },
   {
-    letter: "ñ",
-    answer: ["señal", "puñal", "caña"],
-    status: 0,
-    question: [
-      "CONTIENE LA Ñ. Indicio que permite deducir algo de lo que no se tiene un conocimiento directo.",
-      "CONTIENE LA Ñ. Arma blanca que aparece en el juego del Cluedo",
-      "CONTIENE LA Ñ. Artilugio de pesca que también puede pedirse en un bar",
-    ],
-  },
-  {
     letter: "o",
     answer: ["orco", "Oliva", "Oscar"],
     status: 0,
@@ -278,6 +268,9 @@ let answer;
 let random;
 let rightAnswer;
 let letterOfTheDonut;
+let right = 0;
+let wrong = 0;
+let answeredQuestion = 0;
 
 const rng = (num) => Math.floor(Math.random() * num);
 
@@ -299,36 +292,45 @@ const appendQuestion = () => {
   showQuestion.innerText = question;
 };
 
-let form = document.getElementById("form");
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
-  answer = event.target.input.value.trim().toLowerCase();
-  rightAnswer = donut[donutElement].answer[random];
-  donutLetter = donut[donutElement].letter;
-  letterOfTheDonut = document.getElementById(donutLetter);
+const gameFlow = () => {
+  let form = document.getElementById("form");
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    answer = event.target.input.value.trim().toLowerCase();
+    rightAnswer = donut[donutElement].answer[random];
+    donutLetter = donut[donutElement].letter;
+    letterOfTheDonut = document.getElementById(donutLetter);
 
-  if (answer === rightAnswer.toLowerCase()) {
-    donutElement++;
-    letterOfTheDonut.classList.add("right");
-  } else {
-    donutElement++;
-    letterOfTheDonut.classList.add("wrong");
-  }
-  if (answer === "pasapalabra") {
-    letterOfTheDonut.classList.add("pasapalabra");
-    chooseQuestion();
-    appendQuestion();
-    event.target.input.value = "";
-  }
-  chooseQuestion();
-  appendQuestion();
-  event.target.input.value = "";
-});
+    if (donut[donutElement].status === 0) {
+      if (answer === rightAnswer.toLowerCase()) {
+        right++;
+        donut[donutElement].status = 1;
+        letterOfTheDonut.classList.add("right");
+        donutElement++;
+      } else {
+        wrong++;
+        donut[donutElement].status = 1;
+        letterOfTheDonut.classList.add("wrong");
+        donutElement++;
+      }
+      if (answer === "pasapalabra") {
+        letterOfTheDonut.classList.add("pasapalabra");
+        chooseQuestion();
+        appendQuestion();
+        event.target.input.value = "";
+      }
+      chooseQuestion();
+      appendQuestion();
+      event.target.input.value = "";
+    }
+  });
+};
 
 const run = () => {
   rngQuestionNumber();
   chooseQuestion();
   appendQuestion();
+  gameFlow();
 };
 
 run();
