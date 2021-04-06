@@ -262,6 +262,16 @@ let donut = [
 ];
 
 //Taking the HTML Elements.
+const rankinSection = document.getElementById("ranking");
+const rankingNameFirst = document.getElementById("ranking__name--first");
+const rankingRightFirst = document.getElementById("ranking__rigth--first");
+const rankingMedalFirst = document.getElementById("ranking__medal--first");
+const rankingNameSecond = document.getElementById("ranking__name--second");
+const rankingRightSecond = document.getElementById("ranking__rigth--second");
+const rankingMedalSecond = document.getElementById("ranking__medal--second");
+const rankingNameThird = document.getElementById("ranking__name--third");
+const rankingRightThird = document.getElementById("ranking__rigth--third");
+const rankingMedalThird = document.getElementById("ranking__medal--third");
 const infoSection = document.getElementById("info");
 const donutSection = document.getElementById("donutWrapper");
 const infoForm = document.getElementById("inputName");
@@ -271,6 +281,10 @@ const form = document.getElementById("form");
 const timer = document.getElementById("timer");
 
 //Just regular variables
+let ranking = [
+  { user: "Skylab", score: 20 },
+  { user: "Renszo", score: 15 },
+];
 let donutElement = 0;
 let donutLetter;
 let question;
@@ -282,9 +296,45 @@ let letterOfTheDonut;
 let clearTimer;
 let right = 0;
 let wrong = 0;
-let inputTimer = (timer.innerText = 250);
+let inputTimer = (timer.innerText = 2000);
 let timeLeft = inputTimer - 1;
 let answeredQuestion = 0;
+
+//Show Ranking.
+const rankingDesc = (a, b) => {
+  return b.score - a.score;
+};
+
+const rankPositions = (ranking) => {
+  debugger;
+  let rank = 1;
+  for (let user in ranking) {
+    if (rank === 1) {
+      rankingNameFirst.innerText = ranking[user].user;
+      rankingRightFirst.innerText = ranking[user].score;
+      rankingMedalFirst.innerText = "🥇";
+    } else if (rank === 2) {
+      rankingNameSecond.innerText = ranking[user].user;
+      rankingRightSecond.innerText = ranking[user].score;
+      rankingMedalSecond.innerText = "🥈";
+    } else {
+      rankingNameThird.innerText = ranking[user].user;
+      rankingRightThird.innerText = ranking[user].score;
+      rankingMedalThird.innerText = "🥉";
+    }
+    rank++;
+  }
+};
+
+const showRanking = () => {
+  debugger;
+  donutSection.style.display = "none";
+  rankinSection.style.display = "block";
+  const userScore = { user: name, score: right };
+  ranking.push(userScore);
+  ranking.sort(rankingDesc);
+  rankPositions(ranking);
+};
 
 //Alphabetic game.
 const rng = (num) => Math.floor(Math.random() * num);
@@ -351,6 +401,9 @@ const triggerTheTimer = () => {
       timer.innerText = 0;
       clearInterval(clearTimer);
     }
+    if (timeLeft === 0) {
+      showRanking();
+    }
   }, 1000);
 };
 
@@ -373,8 +426,9 @@ const gameOver = () => {
 };
 
 const rightOrWrong = () => {
-  debugger;
-
+  if (answer.toLowerCase() === "end") {
+    showRanking();
+  }
   if (answer === "pasapalabra") {
     letterOfTheDonut.classList.add("pasapalabra");
     appendAnswer();
@@ -417,6 +471,7 @@ const gameFlow = () => {
     answeredQuestion = right + wrong;
     if (answeredQuestion === donut.length) {
       clearAnswerInput(event);
+      showRanking();
     } else {
       chooseQuestion();
       appendQuestion();

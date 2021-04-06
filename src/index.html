@@ -22,7 +22,8 @@
         </p>
         <p class="info__rules">
           Si durante una pregunta escribes PASAPALABRA, la saltaremos y
-          volveremos a ella más tarde.
+          volveremos a ella más tarde. Si escribes END, daremos el juego por
+          terminado.
         </p>
         <p class="info__rules">Buena suerte!</p>
       </div>
@@ -90,6 +91,33 @@
     </section>
     <!-- The alphabetic donut. -->
 
-    <section class="ranking" id="ranking"></section>
+    <section class="ranking" id="ranking">
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Aciertos</th>
+            <th>Errores</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td id="ranking__name--first"></td>
+            <td id="ranking__rigth--first"></td>
+            <td id="ranking__medal--first"></td>
+          </tr>
+          <tr>
+            <td id="ranking__name--second"></td>
+            <td id="ranking__rigth--second"></td>
+            <td id="ranking__medal--second"></td>
+          </tr>
+          <tr>
+            <td id="ranking__name--third"></td>
+            <td id="ranking__rigth--third"></td>
+            <td id="ranking__medal--third"></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
   </body>
 </html>
