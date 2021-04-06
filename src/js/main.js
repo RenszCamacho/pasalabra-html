@@ -292,7 +292,6 @@ const chooseQuestion = () => {
 };
 
 const appendQuestion = () => {
-  // const showQuestion = document.getElementById("questionContainer");
   if (donut[donutElement].status === 0) {
     showQuestion.innerText = question;
   }
@@ -300,7 +299,6 @@ const appendQuestion = () => {
 
 const appendAnswer = () => {
   debugger;
-  // const showAnswer = document.getElementById("answerContainer");
   if (answer === "pasapalabra") {
     showAnswer.innerText =
       'Has escogido "Pasapalabra". Quedara pendiente para luego.';
@@ -375,7 +373,6 @@ const rightOrWrong = () => {
 };
 
 const gameFlow = () => {
-  // let form = document.getElementById("form");
   form.addEventListener("submit", (event) => {
     debugger;
     event.preventDefault();
