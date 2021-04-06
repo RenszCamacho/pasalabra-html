@@ -296,7 +296,7 @@ let letterOfTheDonut;
 let clearTimer;
 let right = 0;
 let wrong = 0;
-let inputTimer = (timer.innerText = 2000);
+let inputTimer = (timer.innerText = 200);
 let timeLeft = inputTimer - 1;
 let answeredQuestion = 0;
 
