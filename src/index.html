@@ -7,8 +7,43 @@
     <script defer src="./index.js"></script>
   </head>
   <body>
-    <section class="info"></section>
-    <section class="donutWrapper">
+    <!-- Pasapalabra's home page -->
+    <section id="info" class="info">
+      <div class="info__description">
+        <h1 class="info__title">Pasapalabra</h1>
+        <p class="info__rules">Bienvenido, Vamos a jugar al pasapalabra.</p>
+        <p class="info__rules">
+          Vamos a hacerte una serie de preguntas cuya respuesta es una palabra
+          que incluye o empieza por una letra, en orden alfabético.
+        </p>
+        <p class="info__rules">
+          Ganarás un punto por cada respuesta acertada. Cuantos más aciertos,
+          mayor será tu posición en el ranking.
+        </p>
+        <p class="info__rules">
+          Si durante una pregunta escribes PASAPALABRA, la saltaremos y
+          volveremos a ella más tarde.
+        </p>
+        <p class="info__rules">Buena suerte!</p>
+      </div>
+      <form id="inputName">
+        <label class="info__label"
+          >Introduce tu nombre
+          <input
+            class="info__input"
+            type="text"
+            name="name"
+            placeholder="Introduce tu nombre"
+            required
+          />
+          <button class="info__btn" type="submit">Play</button>
+        </label>
+      </form>
+    </section>
+    <!-- Pasapalabra's home page -->
+
+    <!-- The alphabetic donut. -->
+    <section id="donutWrapper" class="donutWrapper">
       <h2 class="title">Pasapalabra</h2>
       <ul class="donut">
         <li id="a" class="circle">A</li>
@@ -53,5 +88,8 @@
       </form>
       <div class="timer">Tiempo: <span id="timer"></span>s</div>
     </section>
+    <!-- The alphabetic donut. -->
+
+    <section class="ranking" id="ranking"></section>
   </body>
 </html>

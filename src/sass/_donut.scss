@@ -1,10 +1,15 @@
 .donutWrapper {
-  background-color: hsl(219.7, 98.9%, 63.1%);
+  //In js we go to make it display flex.
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  // background-color: hsl(219.7, 98.9%, 63.1%);
   width: 100%;
   min-height: 100vh;
 }
 
 .timer {
+  width: 20rem;
   text-align: center;
   font-size: 3rem;
   color: white;

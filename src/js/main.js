@@ -262,6 +262,9 @@ let donut = [
 ];
 
 //Taking the HTML Elements.
+const infoSection = document.getElementById("info");
+const donutSection = document.getElementById("donutWrapper");
+const infoForm = document.getElementById("inputName");
 const showQuestion = document.getElementById("questionContainer");
 const showAnswer = document.getElementById("answerContainer");
 const form = document.getElementById("form");
@@ -271,16 +274,19 @@ const timer = document.getElementById("timer");
 let donutElement = 0;
 let donutLetter;
 let question;
+let name;
 let answer;
 let random;
 let rightAnswer;
 let letterOfTheDonut;
+let clearTimer;
 let right = 0;
 let wrong = 0;
 let inputTimer = (timer.innerText = 250);
 let timeLeft = inputTimer - 1;
 let answeredQuestion = 0;
 
+//Alphabetic game.
 const rng = (num) => Math.floor(Math.random() * num);
 
 const rngQuestionNumber = () => {
@@ -333,13 +339,35 @@ const clearAnswerInput = (event) => {
   event.target.input.value = "";
 };
 
+const triggerTheTimer = () => {
+  //making the countdow.
+  clearTimer = setInterval(() => {
+    timer.innerText = timeLeft;
+
+    timeLeft--;
+
+    //do not allow it to me less than a zero.
+    if (timeLeft < 0) {
+      timer.innerText = 0;
+      clearInterval(clearTimer);
+    }
+  }, 1000);
+};
+
 const gameOver = () => {
-  //is every questions answered?
-  const donutStatus = donut.every((donutElement) => donutElement.status === 1);
-  // if is not, return false.
-  if (!donutStatus) {
-    return false;
+  if (timeLeft < 0) {
+    clearInterval(clearTimer);
+    return true;
   } else {
+    //is every questions answered?
+    const donutStatus = donut.every(
+      (donutElement) => donutElement.status === 1
+    );
+    // if is not, return false.
+    if (!donutStatus) {
+      return false;
+    }
+    clearInterval(clearTimer);
     return true;
   }
 };
@@ -364,32 +392,6 @@ const rightOrWrong = () => {
     appendAnswer();
   }
   donutElement++;
-  // if the user type 'pasapalabra', we need to ask thoso unanswered questions.
-  if (donutElement === donut.length) {
-    donutElement = 0;
-  }
-  // here we need to ask just those unanswered questions.
-  while (donut[donutElement].status !== 0 && !gameOver()) {
-    donutElement++;
-    if (donutElement === donut.length) {
-      increment = 0;
-    }
-  }
-};
-
-const triggerTheTimer = () => {
-  //making the countdow.
-  clearTimer = setInterval(() => {
-    timer.innerText = timeLeft;
-
-    timeLeft--;
-
-    //do not allow it to me less than a zero.
-    if (timeLeft < 0) {
-      timer.innerText = 0;
-      clearInterval(clearTimer);
-    }
-  }, 1000);
 };
 
 const gameFlow = () => {
@@ -401,10 +403,20 @@ const gameFlow = () => {
     donutLetter = donut[donutElement].letter;
     letterOfTheDonut = document.getElementById(donutLetter);
     rightOrWrong();
+    // if the user type 'pasapalabra', we need to ask thoso unanswered questions.
     if (donutElement === donut.length) {
       donutElement = 0;
+    }
+    // here we need to ask just those unanswered questions.
+    while (donut[donutElement].status !== 0 && !gameOver()) {
+      donutElement++;
+      if (donutElement === donut.length) {
+        increment = 0;
+      }
+    }
+    answeredQuestion = right + wrong;
+    if (answeredQuestion === donut.length) {
       clearAnswerInput(event);
-      rightOrWrong();
     } else {
       chooseQuestion();
       appendQuestion();
@@ -421,4 +433,11 @@ const run = () => {
   triggerTheTimer();
 };
 
-run();
+//Intruduction to Alphabetic game.
+infoForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  name = event.target.name.value;
+  infoSection.style.display = "none";
+  donutSection.style.display = "flex";
+  run();
+});
