@@ -306,7 +306,6 @@ const rankingDesc = (a, b) => {
 };
 
 const rankPositions = (ranking) => {
-  debugger;
   let rank = 1;
   for (let user in ranking) {
     if (rank === 1) {
@@ -327,7 +326,6 @@ const rankPositions = (ranking) => {
 };
 
 const showRanking = () => {
-  debugger;
   donutSection.style.display = "none";
   rankinSection.style.display = "block";
   const userScore = { user: name, score: right };
@@ -359,7 +357,6 @@ const appendQuestion = () => {
 };
 
 const appendAnswer = () => {
-  debugger;
   if (answer === "pasapalabra") {
     showAnswer.innerText =
       'Has escogido "Pasapalabra". Quedara pendiente para luego.';
@@ -450,7 +447,6 @@ const rightOrWrong = () => {
 
 const gameFlow = () => {
   form.addEventListener("submit", (event) => {
-    debugger;
     event.preventDefault();
     answer = event.target.input.value.trim().toLowerCase();
     rightAnswer = donut[donutElement].answer[random];
