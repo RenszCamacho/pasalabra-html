@@ -261,10 +261,13 @@ let donut = [
   },
 ];
 
+//Taking the HTML Elements.
 const showQuestion = document.getElementById("questionContainer");
 const showAnswer = document.getElementById("answerContainer");
 const form = document.getElementById("form");
+const timer = document.getElementById("timer");
 
+//Just regular variables
 let donutElement = 0;
 let donutLetter;
 let question;
@@ -274,6 +277,8 @@ let rightAnswer;
 let letterOfTheDonut;
 let right = 0;
 let wrong = 0;
+let inputTimer = (timer.innerText = 250);
+let timeLeft = inputTimer - 1;
 let answeredQuestion = 0;
 
 const rng = (num) => Math.floor(Math.random() * num);
@@ -372,6 +377,21 @@ const rightOrWrong = () => {
   }
 };
 
+const triggerTheTimer = () => {
+  //making the countdow.
+  clearTimer = setInterval(() => {
+    timer.innerText = timeLeft;
+
+    timeLeft--;
+
+    //do not allow it to me less than a zero.
+    if (timeLeft < 0) {
+      timer.innerText = 0;
+      clearInterval(clearTimer);
+    }
+  }, 1000);
+};
+
 const gameFlow = () => {
   form.addEventListener("submit", (event) => {
     debugger;
@@ -398,6 +418,7 @@ const run = () => {
   chooseQuestion();
   appendQuestion();
   gameFlow();
+  triggerTheTimer();
 };
 
 run();
