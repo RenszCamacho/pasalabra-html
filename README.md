@@ -1,6 +1,6 @@
 # Pasapalabra-Html
 
-- This a basic game call Pasapalabra, made of Html, Sass and Javascript.
+- This a basic game called Pasapalabra, made of Html, Sass and Javascript.
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/d6f2c7ab-921c-4050-8c09-7fdf4351d32d/deploy-status)](https://app.netlify.com/sites/skylab-pasapalabra/deploys)
 
@@ -41,7 +41,7 @@ This is deployed on Netlify.
 
 - HTML5.
 - CSS3.
-- Typescript.
+- Javascript.
 - ParcelJs(Bundler).
 - Sass(Css Pre-precesor).
 - Methodology/BEM(Css Especificity).
