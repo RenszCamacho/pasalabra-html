@@ -289,39 +289,67 @@ const chooseQuestion = () => {
 
 const appendQuestion = () => {
   let showQuestion = document.getElementById("question");
-  showQuestion.innerText = question;
+  if (donut[donutElement].status === 0) {
+    showQuestion.innerText = question;
+  }
+};
+
+const clearAnswerInput = (event) => {
+  event.target.input.value = "";
+};
+
+const gameOver = () => {
+  return false;
+};
+
+const rightOrWrong = () => {
+  debugger;
+
+  if (answer === "pasapalabra") {
+    letterOfTheDonut.classList.add("pasapalabra");
+  } else if (answer === rightAnswer.toLowerCase()) {
+    right++;
+    donut[donutElement].status = 1;
+    letterOfTheDonut.classList.remove("pasapalabra");
+    letterOfTheDonut.classList.add("right");
+  } else {
+    wrong++;
+    donut[donutElement].status = 1;
+    letterOfTheDonut.classList.remove("pasapalabra");
+    letterOfTheDonut.classList.add("wrong");
+  }
+  donutElement++;
+  // if the user type 'pasapalabra', we need to ask thoso unanswered questions.
+  if (donutElement === donut.length) {
+    donutElement = 0;
+  }
+  // here we need to ask just those unanswered questions.
+  while (donut[donutElement].status !== 0 && !gameOver()) {
+    donutElement++;
+    if (donutElement === donut.length) {
+      increment = 0;
+    }
+  }
 };
 
 const gameFlow = () => {
   let form = document.getElementById("form");
   form.addEventListener("submit", (event) => {
+    debugger;
     event.preventDefault();
     answer = event.target.input.value.trim().toLowerCase();
     rightAnswer = donut[donutElement].answer[random];
     donutLetter = donut[donutElement].letter;
     letterOfTheDonut = document.getElementById(donutLetter);
-
-    if (donut[donutElement].status === 0) {
-      if (answer === rightAnswer.toLowerCase()) {
-        right++;
-        donut[donutElement].status = 1;
-        letterOfTheDonut.classList.add("right");
-        donutElement++;
-      } else {
-        wrong++;
-        donut[donutElement].status = 1;
-        letterOfTheDonut.classList.add("wrong");
-        donutElement++;
-      }
-      if (answer === "pasapalabra") {
-        letterOfTheDonut.classList.add("pasapalabra");
-        chooseQuestion();
-        appendQuestion();
-        event.target.input.value = "";
-      }
+    rightOrWrong();
+    if (donutElement === donut.length) {
+      donutElement = 0;
+      clearAnswerInput(event);
+      rightOrWrong();
+    } else {
       chooseQuestion();
       appendQuestion();
-      event.target.input.value = "";
+      clearAnswerInput(event);
     }
   });
 };
