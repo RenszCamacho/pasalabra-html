@@ -1,5 +1,4 @@
 node_modules
-dist
 .cache
 .git
 .DS_Store
