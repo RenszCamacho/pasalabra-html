@@ -3,6 +3,10 @@
   text-align: center;
   font-size: 2rem;
   color: white;
+
+  & > p {
+    padding-bottom: 1rem;
+  }
 }
 
 .form {

@@ -261,6 +261,10 @@ let donut = [
   },
 ];
 
+const showQuestion = document.getElementById("questionContainer");
+const showAnswer = document.getElementById("answerContainer");
+const form = document.getElementById("form");
+
 let donutElement = 0;
 let donutLetter;
 let question;
@@ -288,9 +292,37 @@ const chooseQuestion = () => {
 };
 
 const appendQuestion = () => {
-  let showQuestion = document.getElementById("question");
+  // const showQuestion = document.getElementById("questionContainer");
   if (donut[donutElement].status === 0) {
     showQuestion.innerText = question;
+  }
+};
+
+const appendAnswer = () => {
+  debugger;
+  // const showAnswer = document.getElementById("answerContainer");
+  if (answer === "pasapalabra") {
+    showAnswer.innerText =
+      'Has escogido "Pasapalabra". Quedara pendiente para luego.';
+
+    //The answer go to disapear in two seconds.
+    setTimeout(() => {
+      showAnswer.innerText = "";
+    }, 2000);
+  } else if (answer === rightAnswer.toLowerCase()) {
+    showAnswer.innerText = `Si! 🎉🎉🎉 ${rightAnswer.toUpperCase()} 🎉🎉🎉 es la respuesta correcta.`;
+
+    //The answer go to disapear in two seconds.
+    setTimeout(() => {
+      showAnswer.innerText = "";
+    }, 2000);
+  } else {
+    showAnswer.innerText = `🚨 Lo siento, la respuesta correcta es ${rightAnswer.toUpperCase()} 🚨`;
+
+    //The answer go to disapear in two seconds.
+    setTimeout(() => {
+      showAnswer.innerText = "";
+    }, 2000);
   }
 };
 
@@ -299,7 +331,14 @@ const clearAnswerInput = (event) => {
 };
 
 const gameOver = () => {
-  return false;
+  //is every questions answered?
+  const donutStatus = donut.every((donutElement) => donutElement.status === 1);
+  // if is not, return false.
+  if (!donutStatus) {
+    return false;
+  } else {
+    return true;
+  }
 };
 
 const rightOrWrong = () => {
@@ -307,16 +346,19 @@ const rightOrWrong = () => {
 
   if (answer === "pasapalabra") {
     letterOfTheDonut.classList.add("pasapalabra");
+    appendAnswer();
   } else if (answer === rightAnswer.toLowerCase()) {
     right++;
     donut[donutElement].status = 1;
     letterOfTheDonut.classList.remove("pasapalabra");
     letterOfTheDonut.classList.add("right");
+    appendAnswer();
   } else {
     wrong++;
     donut[donutElement].status = 1;
     letterOfTheDonut.classList.remove("pasapalabra");
     letterOfTheDonut.classList.add("wrong");
+    appendAnswer();
   }
   donutElement++;
   // if the user type 'pasapalabra', we need to ask thoso unanswered questions.
@@ -333,7 +375,7 @@ const rightOrWrong = () => {
 };
 
 const gameFlow = () => {
-  let form = document.getElementById("form");
+  // let form = document.getElementById("form");
   form.addEventListener("submit", (event) => {
     debugger;
     event.preventDefault();
