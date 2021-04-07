@@ -291,6 +291,7 @@ let question;
 let name;
 let answer;
 let random;
+let donutStatus;
 let rightAnswer;
 let letterOfTheDonut;
 let clearTimer;
@@ -410,9 +411,7 @@ const gameOver = () => {
     return true;
   } else {
     //is every questions answered?
-    const donutStatus = donut.every(
-      (donutElement) => donutElement.status === 1
-    );
+    donutStatus = donut.every((element) => element.status === 1);
     // if is not, return false.
     if (!donutStatus) {
       return false;
@@ -423,6 +422,7 @@ const gameOver = () => {
 };
 
 const rightOrWrong = () => {
+  debugger;
   if (answer.toLowerCase() === "end") {
     showRanking();
   }
@@ -447,6 +447,7 @@ const rightOrWrong = () => {
 
 const gameFlow = () => {
   form.addEventListener("submit", (event) => {
+    debugger;
     event.preventDefault();
     answer = event.target.input.value.trim().toLowerCase();
     rightAnswer = donut[donutElement].answer[random];
@@ -461,7 +462,7 @@ const gameFlow = () => {
     while (donut[donutElement].status !== 0 && !gameOver()) {
       donutElement++;
       if (donutElement === donut.length) {
-        increment = 0;
+        donutElement = 0;
       }
     }
     answeredQuestion = right + wrong;
