@@ -462,7 +462,7 @@ var triggerTheTimer = function triggerTheTimer() {
   //making the countdow.
   clearTimer = setInterval(function () {
     timer.innerText = timeLeft;
-    timeLeft--; //do not allow it to me less than a zero.
+    timeLeft--; //do not allow it to be less than a zero.
 
     if (timeLeft < 0) {
       timer.innerText = 0;
@@ -495,8 +495,6 @@ var gameOver = function gameOver() {
 };
 
 var rightOrWrong = function rightOrWrong() {
-  debugger;
-
   if (answer.toLowerCase() === "end") {
     showRanking();
   }
@@ -523,13 +521,12 @@ var rightOrWrong = function rightOrWrong() {
 
 var gameFlow = function gameFlow() {
   form.addEventListener("submit", function (event) {
-    debugger;
     event.preventDefault();
     answer = event.target.input.value.trim().toLowerCase();
     rightAnswer = donut[donutElement].answer[random];
     donutLetter = donut[donutElement].letter;
     letterOfTheDonut = document.getElementById(donutLetter);
-    rightOrWrong(); // if the user type 'pasapalabra', we need to ask thoso unanswered questions.
+    rightOrWrong(); // if the user type 'pasapalabra', we need to ask those unanswered questions.
 
     if (donutElement === donut.length) {
       donutElement = 0;
@@ -609,7 +606,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50603" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49504" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

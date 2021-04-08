@@ -394,7 +394,7 @@ const triggerTheTimer = () => {
 
     timeLeft--;
 
-    //do not allow it to me less than a zero.
+    //do not allow it to be less than a zero.
     if (timeLeft < 0) {
       timer.innerText = 0;
       clearInterval(clearTimer);
@@ -422,7 +422,6 @@ const gameOver = () => {
 };
 
 const rightOrWrong = () => {
-  debugger;
   if (answer.toLowerCase() === "end") {
     showRanking();
   }
@@ -447,14 +446,13 @@ const rightOrWrong = () => {
 
 const gameFlow = () => {
   form.addEventListener("submit", (event) => {
-    debugger;
     event.preventDefault();
     answer = event.target.input.value.trim().toLowerCase();
     rightAnswer = donut[donutElement].answer[random];
     donutLetter = donut[donutElement].letter;
     letterOfTheDonut = document.getElementById(donutLetter);
     rightOrWrong();
-    // if the user type 'pasapalabra', we need to ask thoso unanswered questions.
+    // if the user type 'pasapalabra', we need to ask those unanswered questions.
     if (donutElement === donut.length) {
       donutElement = 0;
     }
